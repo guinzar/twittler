@@ -1,0 +1,440 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html {
+  box-sizing: border-box;
+  font-family: Verdana !important;
+  color: #22313F;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+	background: #4183D7;
+	line-height: 1;
+}
+h1 {
+	font-size: 200%;
+	font-weight: bold;
+}
+h2 {
+	font-size: 120%;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+input::-webkit-input-placeholder {
+	color: #ffd082 !important;
+}
+input:-moz-placeholder { /* Firefox 18- */
+	color: #ffd082 !important;  
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+	color: #ffd082 !important;  
+}
+input:-ms-input-placeholder {  
+	color: #ffd082 !important;  
+}
+textarea::-webkit-input-placeholder {
+	color: #77dd77 !important;
+}
+textarea:-moz-placeholder { /* Firefox 18- */
+	color: #77dd77 !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+	color: #77dd77 !important;  
+}
+textarea:-ms-input-placeholder {  
+	color: #77dd77 !important;  
+}
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background: #f9ff94;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffd082;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #FABE58; 
+}
+label > input{
+	visibility: hidden;
+	position: absolute;
+}
+label > input + img{
+	width: 80px;
+	height: 80px;
+	margin: 6px 3px;
+	cursor: pointer;
+	border: 2px solid orange;
+	border-radius: 10px;
+	object-fit: cover;
+}
+label > input:checked + img{
+  border: 2px solid red;
+}
+.header {
+	grid-area: header;
+	background: #87ffb0;
+	border-radius: 10px;
+	padding: 6px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.twittlerheader {
+	display: flex;
+	flex-direction: row;
+}
+.twittlerlogo {
+	width: 38px;
+	height: 38px;
+	background: white;
+	background-image: url("img/bird.png");
+	background-size: cover;
+	border-radius: 10px;
+}
+.twittlerhead {
+	color: orange;
+	margin: 0px 3px;
+	padding-top: 1px;
+	font-style: italic;
+	font-size: 200%;
+	text-shadow: 1px 1px #000000;
+}
+.nav {
+	height: 32px;
+	display: flex;
+	flex-direction: row;
+}
+.navitem {
+	margin: 0px 2px;
+	padding: 8px 5px 0px 35px;
+	font-size: 90%;
+	background-position: left;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+}
+.navitem:hover {
+	color: white;
+	background-color: #a9ffc6;
+	cursor: pointer;
+}
+.home {
+	background-image: url("img/home.png");
+}
+.profile {
+	background-image: url("img/profile.png");
+}
+.messages {
+	background-image: url("img/messages.png");
+}
+.logout {
+	background-image: url("img/settings.png");
+}
+.search {
+	width: 190px;
+	height: 30px;
+	background: white;
+	background-position: left;
+	background-repeat: no-repeat;
+	min-width: 100px;
+	max-width: 300px;
+	border-radius: 10px;
+}
+.leftsidebar {
+ 	grid-area: sidebar1;
+ 	display: flex;
+ 	background: #72dbff;
+ 	border-radius: 10px;
+ 	flex-direction: column;
+	align-items: center;
+}
+.userpic {
+	margin-top: 10px;
+	width: 150px;
+	height: 150px;
+	background-size: cover;
+	border-radius: 10px;
+	border: 3px solid #19B5FE;
+}
+.username {
+	margin: 5px 0px;
+	font-weight: bold;
+	color: #446CB3;
+	text-align: center;
+}
+.tags {
+	margin: 10px 0px;
+	display: flex;
+ 	border-radius: 10px;
+ 	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.tagheader {
+	margin-bottom: 4px;
+	font-weight: bold;
+	color: #663399;
+	font-size: 120%;
+}
+.tag {
+	margin: 3px 0px;
+	color: #9B59B6;
+	cursor: pointer;
+}
+.tag:hover {
+	text-decoration: underline;
+	color: #BE90D4;
+}
+.rightsidebar {
+ 	grid-area: sidebar2;
+ 	background: #7cb6ff;
+ 	border-radius: 10px;
+ 	padding: 6px 0px;
+ 	text-align: center;
+ 	line-height: 30px;
+ 	font-size: 70%;
+}
+.tweetbox {
+	grid-area: tweet;
+	display: flex;
+	padding: 6px;
+	flex-direction: row;
+	align-items: center;
+	background: #a9ffc6;
+	border-radius: 10px;
+	display: none;
+}
+.tweetwrite {
+	background: white;
+	margin: 0px 6px;
+	width: 100%;
+	height: 46px;
+	border-radius: 10px;
+}
+#tweetinput {
+	color: #F22613;
+	font-size: 100%;
+	font-family: Verdana;
+	padding: 4px 5px;
+	width: 100%;
+	height: 46px;
+	border: 0px;
+	border-radius: 10px;
+	resize: none;
+}
+#tweetinput:focus{
+  outline: none;
+}
+.tweetsubmit {
+	background: #FABE58;
+	font-weight: bold;
+	font-size: 110%;
+	color: #ffefcc;
+	text-align: center;
+	padding: 12px 0px;
+	width: 100px;
+	height: 46px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.tweetsubmit:hover {
+	background: #ffd082;
+	color: #fff6e2;
+}
+.login {
+	background: #f9ff94;
+	grid-column-start: start;
+  	grid-row-start: start;
+  	grid-row-end: end;
+	overflow-y: auto;
+	text-align: center;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 80%;
+}
+.logininput {
+	color: #77dd77;
+	font-size: 100%;
+	font-family: Verdana;
+	text-align: center;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	width: 60%;
+	height: 30px;
+	border: 0px;
+    border-radius: 10px;
+}
+.logininput:focus{
+	outline: none;
+}
+.invalidinput {
+	margin-top: -4px;
+	display: none;
+	color: red;
+}
+.createacc {
+	margin: 10px;
+}
+.loginfields {
+	width: 100%;
+}
+.gobuttonsection {
+	margin: 10px;
+}
+.gobutton {
+	background: #FABE58;
+	font-weight: bold;
+	font-size: 110%;
+	color: #ffefcc;
+	text-align: center;
+	padding: 12px 0px;
+	width: 100px;
+	height: 40px;
+	border-radius: 10px;
+}
+.gobutton:hover {
+	background: #ffd082;
+	color: #fff6e2;
+	cursor: pointer;
+}
+.tweets {
+	display: none;
+	grid-area: main;
+	overflow-y: scroll;
+	min-height: 62px;
+}
+.tweetcontainer {
+	display: flex;
+	flex-direction: row;
+}
+.tweet {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px;
+	background: #f9ff94;
+	border-radius: 10px;
+}
+.tweetpic {
+	min-width: 50px;
+	min-height: 50px;
+	background: white;
+	background-size: cover;
+	border-radius: 10px;
+	border: 2px solid orange;
+	cursor: pointer;
+}
+.tweetmain {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 1px 0px 1px 6px;
+}
+.tweethead {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.tweetuser {
+	min-width: 170px;
+	font-size: 105%;
+	font-weight: bold;
+	margin-right: 6px;
+	color: #9B59B6;
+	cursor: pointer;
+	text-decoration: none;
+}
+.tweetuser:hover {
+	text-decoration: underline;
+}
+.tweetdate {
+	min-width: 90px;
+	color: grey;
+	font-size: 80%;
+}
+.tweetcontent {
+	color: black;
+	padding-top: 6px;
+}
+.tweettag {
+	display: inline-block;
+	color: #F89406;
+	cursor: pointer;
+}
+.tweettag:hover {
+	text-decoration: underline;
+}
+.tweetend {
+	width: 10px;
+}
+.footer {
+	grid-area: footer;
+	background: #c694ff;
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-top: 15px;
+}
+.container {
+	max-width: 1024px;
+	height: 100vh;
+	padding: 10px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 200px [start] minmax(364px, 800px) 200px;
+	grid-template-rows: 50px [start] 62px auto [end] 50px;
+	grid-row-gap: 10px;
+	grid-column-gap: 10px;
+	grid-template-areas: 
+	"header header header"
+	"sidebar1 tweet sidebar2"
+	"sidebar1 main sidebar2"
+	"footer footer footer";
+}

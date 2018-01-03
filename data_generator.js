@@ -12,6 +12,13 @@ streams.users.sharksforcheap = [];
 streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
+window.pics = {
+  shawndrost: 'img/burger.jpg',
+  sharksforcheap: 'img/cake.jpg',
+  mracus: 'img/orange.jpg',
+  douglascalhoun: 'img/fries.jpg'
+}
+
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
@@ -31,10 +38,16 @@ var opening = ['just', '', '', '', '', 'ask me how i', 'completely', 'nearly', '
 var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed'];
 var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
 var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind'];
-var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
+var tags = ['#techlife', '#burningman', '#sf', '#butonlyiknowhow', '#forreal', '#sxsw', '#ballin', '#omg', '#yolo', '#magic'];
 
 var randomMessage = function(){
-  return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');
+  let msg = [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns)].join(' ');
+  for (let usedTags = [], tag = randomElement(tags), i = Math.floor(Math.random() * 5); i > 0; i--) {
+    while (usedTags.includes(tag)) tag = randomElement(tags);
+    usedTags.push(tag);
+    msg += ' ' + tag;
+  }
+  return msg;
 };
 
 // generate random tweets on a random schedule
@@ -52,18 +65,19 @@ for(var i = 0; i < 10; i++){
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 1500);
+  setTimeout(scheduleNextTweet, Math.random() * 5000);
 };
 scheduleNextTweet();
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
 var writeTweet = function(message){
-  if(!visitor){
-    throw new Error('set the global visitor property!');
+  if(!uname){
+    throw new Error('set the global uname property!');
   }
   var tweet = {};
-  tweet.user = visitor;
+  tweet.user = uname;
   tweet.message = message;
+  tweet.created_at = new Date();
   addTweet(tweet);
 };

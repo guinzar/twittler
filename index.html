@@ -1,27 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="main.js"></script>
   </head>
   <body>
-    <script>
-
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
-
-      });
-
-    </script>
+    <div class="container">
+      <div class="header">
+        <div class="twittlerheader">
+          <div class="twittlerlogo"></div>
+          <div class="twittlerhead">Twittler</div>
+        </div>
+        <div class="nav">
+          <div class="navitem home">Home</div>
+          <div class="navitem profile">Profile</div>
+          <div class="navitem messages">Messages</div>
+          <div class="navitem logout">Log Out</div>
+        </div>
+        <div class="search">
+        </div>
+      </div>
+      <div class="leftsidebar">
+        <div class="userstuff">
+          <div class="userpic"></div>
+          <div class="username"></div>
+        </div>
+        <div class="tags">
+          <div class="tagheader">Popular Tags:</div>
+        </div>
+      </div>
+      <div class="tweetbox">
+        <div class="tweetpic"></div>
+        <div class="tweetwrite">
+          <textarea id="tweetinput" placeholder="write something here"></textarea>
+        </div>
+        <div class="tweetsubmit">post</div>
+      </div>
+      <div class="login">
+        <div class="createacc">
+          <h1>- Create New Account -</h1>
+        </div>
+        <div class="loginfields">
+          <h2>Select a Profile Picture:</h2>
+          <label>
+            <input type="radio" name="profilepic" value="eggplant" />
+            <img src="img/eggplant.jpg">
+          </label>
+          <label>
+            <input type="radio" name="profilepic" value="cupcake"/>
+            <img src="img/cupcake.jpg">
+          </label>
+          <label>
+            <input type="radio" name="profilepic" value="meat"/>
+            <img src="img/meat.jpg">
+          </label>
+          <div class="invalidinput picselect">error: no picture selected</div>
+          </br>(or use a custom img URL):</br>
+          <input class="logininput" placeholder="paste img URL here or leave blank" type="text" name="picurl">
+          <div class="invalidinput picurl">error: invalid url</div>
+          </br><h2>Select a Username:</h2>
+          <input class="logininput" placeholder="alphanumeric 15 char max" type="text" name="uname" maxlength="15">
+          <div class="invalidinput uname">error: invalid username</div>
+        </div>
+        <div class="gobuttonsection">
+          <div class="gobutton">GO</div>
+        </div>
+      </div>
+      <div class="tweets"></div>
+      <div class="rightsidebar">
+        <h1>Current Featurelist:</h1>
+        <ul>
+          <li>Account Creation</li>
+          <li>Login/Logout</li>
+          <li>Saved User on Refresh/Close</li>
+          <li>Clickable tags</li>
+          <li>Custom tags are OK</li>
+          <li>Filter by tags</li>
+          <li>Filter by username</li>
+          <li>Post messages</li>
+        </ul>
+      </div>
+      <div class="footer">unfinished footer... so here's some credits to fill space: made by Mike Guin</div>
+    </div>
   </body>
 </html>
